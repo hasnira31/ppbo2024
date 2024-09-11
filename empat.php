@@ -1,30 +1,8 @@
 <?php
 
-class Author
-{
-    public $name;
-    public $description;
-
-    public function __construct($name, $description) {
-        $this->name = $name;
-        $this->description = $description;
-    }
-
-    public function show($type): array {
-        if ($type === 'name') {
-            return ['name' => $this->name];
-        } elseif ($type === 'description') {
-            return ['description' => $this->description];
-        } elseif ($type === 'all') {
-            return [
-                'name' => $this->name,
-                'description' => $this->description,
-            ];
-        } else {
-            return ['error' => 'Invalid type'];
-        }
-    }
-}
+require_once 'Author.php';
+require_once 'Book.php';
+require_once 'Publisher.php';
 
 $author = new Author("J.K. Rowling", "Penulis buku Harry Potter");
 
@@ -44,3 +22,26 @@ print_r($author->show('all'));
 echo "Menampilkan Tipe yang Tidak Valid:\n";
 print_r($author->show('invalid'));
 
+
+// Contoh penggunaan kelas Book
+$book1 = new Book(123456789, "Belajar PHP", "Panduan lengkap untuk belajar PHP.", "Teknologi", "Indonesia", 300, "John Doe", "Penerbit XYZ");
+
+// Menampilkan semua informasi buku
+print_r($book1->showAll());
+
+// Menampilkan detail buku berdasarkan ISBN
+print_r($book1->detail(123456789));
+print_r($book1->detail(987654321)); // Buku tidak ditemukan
+
+
+// Contoh penggunaan kelas Publisher
+$publisher = new Publisher("Penerbit ABC", "Jl. Contoh No. 123", 123456789);
+
+// Menampilkan informasi penerbit
+echo "Nama Penerbit: " . $publisher->name . "\n";
+echo "Alamat Penerbit: " . $publisher->address . "\n";
+echo "Nomor Telepon Penerbit: " . $publisher->getPhone() . "\n";
+
+// Mengubah nomor telepon
+$publisher->setPhone(987654321);
+echo "Nomor Telepon Penerbit setelah diubah: " . $publisher->getPhone() . "\n";
