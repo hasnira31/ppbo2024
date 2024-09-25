@@ -6,7 +6,7 @@ namespace App\Admin;
 class Pegawai {
     public int $nip;      // Nomor Induk Pegawai
     public string $nama;   // Nama Pegawai
-    protected int $no_hp;  // Nomor HP Pegawai
+    public int $no_hp;  // Nomor HP Pegawai
     public string $alamat;  // Alamat Pegawai
 
     // Konstruktor untuk inisialisasi pegawai
@@ -17,4 +17,4 @@ class Pegawai {
         $this->alamat = $alamat;
     }
 }
-?>
+

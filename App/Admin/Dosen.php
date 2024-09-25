@@ -19,4 +19,4 @@ class Dosen extends Pegawai {
         echo "{$this->nama} sedang mengajar perkuliahan.\n";
     }
 }
-?>
+
