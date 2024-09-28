@@ -1,15 +1,11 @@
 <?php
-require 'vendor/autoload.php';
 
-use App\Admin\Dosen;
+use App\Model\Akademik\Dosen;  // Pastikan namespace sesuai dengan kelas Dosen
 
-$dian = new Dosen("198411132015041001","Dian Prawira","62111111","Jln Purnama", "0013118405");
-$dian->nip = 198411132015041001;
-$dian->nama = "Dian Prawira";
-$dian->no_hp = 62111111; 
-$dian->alamat = "Jln Purnama";
-$dian->nidn = "0013118405";
+require_once 'vendor/autoload.php';
 
-$dian->mengajar(); // Memanggil metode mengajar()
+$dian = new Dosen(198411132015041001, "Dian Prawira", "62111111", "Jln Purnama", "1000121184001");
+$dian->mengajar();
 
-
+// Mengakses dan menampilkan nomor HP dosen dengan getter
+echo "Nomor HP Dosen: " . $dian->getNoHp() . "\n";
